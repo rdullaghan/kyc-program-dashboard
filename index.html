@@ -3,11 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<!-- Version 7 - Force GitHub Pages rebuild -->
-<title>KYC Program Stats</title>
+<title>KYC Program Stats - Corrected</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,131 +15,44 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
 .header-left h1 { font-size: 24px; font-weight: 700; color: #0f172a; }
 .header-left p { font-size: 12px; color: #64748b; margin-top: 2px; }
 .header-right { display: flex; align-items: center; gap: 12px; }
-.live-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-.refresh-btn { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; cursor: pointer; color: #475569; transition: all 0.2s; }
-.refresh-btn:hover { background: #e2e8f0; }
+.live-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; }
 
 /* Tabs */
 .tabs { display: flex; gap: 4px; background: #f1f5f9; border-radius: 12px; padding: 4px; margin-bottom: 24px; }
-.tab { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; color: #64748b; transition: all 0.2s; border: none; background: none; }
+.tab { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; color: #64748b; border: none; background: none; }
 .tab.active { background: #fff; color: #0f172a; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.tab:hover:not(.active) { color: #334155; }
-
-/* Sub-tabs */
-.sub-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 0; }
-.sub-tab { padding: 8px 16px; font-size: 13px; font-weight: 500; cursor: pointer; color: #64748b; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; }
-.sub-tab.active { color: #3b82f6; border-bottom-color: #3b82f6; }
-.sub-tab:hover:not(.active) { color: #334155; }
 
 /* Tab content */
 .tab-content { display: none; }
 .tab-content.active { display: block; }
-.sub-tab-content { display: none; }
-.sub-tab-content.active { display: block; }
 
 /* Cards */
-.cards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
-.cards-row-4 { grid-template-columns: repeat(4, 1fr); }
-.cards-row-3 { grid-template-columns: repeat(3, 1fr); }
-.cards-row-6 { grid-template-columns: repeat(3, 1fr); }
-@media (min-width: 1200px) { .cards-row-6 { grid-template-columns: repeat(6, 1fr); } }
+.cards-row-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 24px; }
+@media (max-width: 1200px) { .cards-row-6 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .cards-row-6 { grid-template-columns: repeat(2, 1fr); } }
 
-.card { background: #fff; border-radius: 10px; padding: 16px; border: 1px solid #e2e8f0; transition: box-shadow 0.2s; }
-.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-.card-label { font-size: 11px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.card { background: #fff; border-radius: 10px; padding: 16px; border: 1px solid #e2e8f0; }
+.card-label { font-size: 11px; font-weight: 500; color: #64748b; text-transform: uppercase; margin-bottom: 6px; }
 .card-value { font-size: 24px; font-weight: 700; color: #0f172a; }
-.card-value.blue { color: #3b82f6; }
 .card-value.green { color: #16a34a; }
-.card-value.red { color: #dc2626; }
-.card-value.purple { color: #8b5cf6; }
-.card-value.amber { color: #d97706; }
 .card-detail { font-size: 11px; color: #64748b; margin-top: 4px; }
 .card-detail.positive { color: #16a34a; }
 .card-detail.negative { color: #dc2626; }
 .card-detail.neutral { color: #d97706; }
 
-.card-accent { border-top: 3px solid; }
-.card-accent.blue { border-top-color: #3b82f6; }
-.card-accent.green { border-top-color: #16a34a; }
-.card-accent.red { border-top-color: #dc2626; }
-.card-accent.purple { border-top-color: #8b5cf6; }
+/* Section headers */
+.section-header { font-size: 18px; font-weight: 600; color: #0f172a; margin-bottom: 16px; }
+
+/* Program description */
+.program-desc { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 20px; margin-bottom: 24px; font-size: 14px; color: #1e40af; }
 
 /* Why cards */
+.cards-row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .why-card { background: #fff; border-radius: 12px; padding: 24px; border: 1px solid #e2e8f0; }
 .why-card .icon { font-size: 24px; margin-bottom: 12px; }
 .why-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #0f172a; }
 .why-card p { font-size: 13px; color: #64748b; line-height: 1.6; }
-
-/* Tables */
-.table-card { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; margin-bottom: 24px; }
-.table-card h3 { padding: 16px 20px; font-size: 15px; font-weight: 600; border-bottom: 1px solid #e2e8f0; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-th { background: #f8fafc; padding: 10px 16px; text-align: left; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0; }
-td { padding: 10px 16px; border-bottom: 1px solid #f1f5f9; color: #334155; }
-tr:last-child td { border-bottom: none; }
-tr.total-row { font-weight: 700; background: #f8fafc; }
-
-/* Charts */
-.overview-charts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
-@media (max-width: 1024px) { .overview-charts-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .overview-charts-grid { grid-template-columns: 1fr; } }
-
-.chart-card { background: #fff; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; }
-.chart-card h4 { font-size: 12px; font-weight: 600; color: #475569; margin-bottom: 10px; }
-.chart-card svg { width: 100%; max-height: 140px; }
-.chart-note { font-size: 10px; color: #94a3b8; margin-top: 6px; font-style: italic; }
-
-.deepdive-chart-card { background: #fff; border-radius: 12px; padding: 16px 20px; border: 1px solid #e2e8f0; margin-bottom: 16px; }
-.deepdive-chart-card h4 { font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 8px; }
-.deepdive-chart-card svg { width: 100%; max-height: 160px; }
-
-/* Section headers */
-.section-header { font-size: 18px; font-weight: 600; color: #0f172a; margin-bottom: 16px; margin-top: 8px; }
-.section-subheader { font-size: 14px; font-weight: 500; color: #64748b; margin-bottom: 12px; }
-
-/* Program description */
-.program-desc { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 20px; margin-bottom: 24px; font-size: 14px; color: #1e40af; line-height: 1.7; }
-
-/* Process section */
-.workflow-card { background: #fff; border-radius: 12px; padding: 24px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
-.workflow-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 16px; color: #0f172a; }
-.workflow-steps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-.workflow-step { background: #f1f5f9; border-radius: 8px; padding: 10px 16px; font-size: 13px; font-weight: 500; color: #334155; }
-.workflow-arrow { color: #94a3b8; font-size: 18px; }
-.workflow-outcomes { display: flex; gap: 12px; flex-wrap: wrap; }
-.workflow-outcome { font-size: 12px; color: #64748b; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
-
-/* SLA cards */
-.sla-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
-.sla-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; text-align: center; }
-.sla-card .sla-value { font-size: 26px; font-weight: 700; color: #3b82f6; }
-.sla-card .sla-label { font-size: 11px; color: #64748b; margin-top: 4px; }
-.sla-card .sla-unit { font-size: 10px; color: #94a3b8; margin-top: 2px; }
-
-/* Footer */
-.footer { text-align: center; padding: 24px; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; margin-top: 40px; }
-.source-footer { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #64748b; margin-bottom: 24px; }
-
-/* Legend */
-.chart-legend { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
-.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #64748b; }
-.legend-dot { width: 10px; height: 10px; border-radius: 3px; }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "urn:goose.ai:schema",
-  "@type": "GooseApp",
-  "name": "kyc-program-stats",
-  "description": "Executive dashboard for KYC Program Stats with KPI cards, trend charts, and deep dive analytics",
-  "width": 1400,
-  "height": 900,
-  "resizable": true,
-  "mcpServers": [
-    "apps"
-  ]
-}
-</script>
 </head>
 <body>
 <div class="container">
@@ -151,11 +60,11 @@ tr.total-row { font-weight: 700; background: #f8fafc; }
   <div class="header">
     <div class="header-left">
       <h1>KYC Program Stats</h1>
-      <p>Know Your Customer / Customer Due Diligence • All Products & Jurisdictions • Last updated: Jun 7, 2026 4:31 PM PT</p>
+      <p>Know Your Customer / Customer Due Diligence • All Products & Jurisdictions • Last updated: Jun 4, 2026 8:33 AM PT</p>
     </div>
     <div class="header-right">
       <div class="live-dot"></div>
-      <span style="font-size: 12px; color: #64748b;">r.dullaghan</span>
+      <span style="font-size: 12px; color: #64748b;">↻ Refresh</span>
     </div>
   </div>
 
@@ -174,7 +83,7 @@ tr.total-row { font-weight: 700; background: #f8fafc; }
     </div>
 
     <h2 class="section-header">Why We Matter</h2>
-    <div class="cards-row cards-row-3">
+    <div class="cards-row-3">
       <div class="why-card">
         <div class="icon">🏛️</div>
         <h3>Regulatory Compliance</h3>
@@ -197,7 +106,7 @@ tr.total-row { font-weight: 700; background: #f8fafc; }
       Our program operates with a hybrid workforce model combining internal full-time employees (FTEs) with specialized BPO vendor partners (AMLRS, PwC, Guidehouse) across all KYC queues to ensure scalability and operational resilience.
     </p>
     
-    <div class="cards-row cards-row-3" style="margin-bottom: 32px;">
+    <div class="cards-row-3">
       <div class="card" style="text-align: center; padding: 24px;">
         <div style="font-size: 36px; font-weight: 700; color: #3b82f6; margin-bottom: 8px;">460</div>
         <div style="font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase;">TOTAL HEADCOUNT</div>
@@ -215,221 +124,55 @@ tr.total-row { font-weight: 700; background: #f8fafc; }
 
   <!-- Tab 2: Program Overview -->
   <div class="tab-content" id="program-overview">
-    <h2 class="section-header">Key Performance Metrics</h2>
-    <div class="cards-row cards-row-4" style="margin-bottom: 32px;">
-      <div class="card card-accent blue">
-        <div class="card-label">ALERTS REVIEWED / MONTH</div>
-        <div class="card-value blue">270K+</div>
-      </div>
-      <div class="card card-accent green">
-        <div class="card-label">DL/ESCALATION RATE</div>
-        <div class="card-value green">19.5%</div>
-      </div>
-      <div class="card card-accent red">
-        <div class="card-label">ooSLA RATE</div>
-        <div class="card-value red">3.5%</div>
-        <div class="card-detail positive">↓ Improving</div>
-      </div>
-      <div class="card card-accent purple">
-        <div class="card-label">DECISION ACCURACY</div>
-        <div class="card-value purple">96.3%</div>
-      </div>
-    </div>
-
-    <h2 class="section-header">Monthly Performance Dashboard</h2>
-    <div class="cards-row cards-row-6">
+    <!-- CORRECTED 6-card layout matching original screenshot -->
+    <div class="cards-row-6">
       <div class="card">
         <div class="card-label">TOTAL VOLUME (MAY)</div>
         <div class="card-value">329,182</div>
         <div class="card-detail positive">↑ 32% vs prior month</div>
       </div>
       <div class="card">
-        <div class="card-label">Dispositioning Rate</div>
+        <div class="card-label">DL/ESCALATION RATE</div>
         <div class="card-value">17.8%</div>
-        <div class="card-detail neutral">Target 20-25% of total</div>
+        <div class="card-detail neutral">↑ from 12.4% in Apr</div>
       </div>
       <div class="card">
-        <div class="card-label">DQSLA + Backlog</div>
+        <div class="card-label">ooSLA + BACKLOG</div>
         <div class="card-value green">0.29%</div>
-        <div class="card-detail positive">+ New 12% of total</div>
+        <div class="card-detail positive">↓ from 1.75% in Apr</div>
       </div>
       <div class="card">
-        <div class="card-label">Total Headcount</div>
-        <div class="card-value">410</div>
-        <div class="card-detail">BPO 390 | Internal 16 + 2 TLs</div>
+        <div class="card-label">TOTAL HEADCOUNT</div>
+        <div class="card-value">460</div>
+        <div class="card-detail">BPO: 400+ | Internal: 60 FTEs</div>
       </div>
       <div class="card">
-        <div class="card-label">SLA Compliance</div>
+        <div class="card-label">SLA COMPLIANCE</div>
         <div class="card-value green">99.7%</div>
-        <div class="card-detail">Target ≥95% by volume (1.3B total)</div>
+        <div class="card-detail">Target: varies by queue (1-30 days)</div>
       </div>
       <div class="card">
-        <div class="card-label">QC Pass Rate</div>
+        <div class="card-label">QC PASS RATE</div>
         <div class="card-value green">93.6%</div>
-        <div class="card-detail">Target ≥ 90%</div>
+        <div class="card-detail">Target: ≥ 90%</div>
       </div>
     </div>
 
-    <div class="overview-charts-grid">
-      <div class="chart-card">
-        <h4>Monthly Alert Volume</h4>
-        <svg id="chart-volume" viewBox="0 0 360 150"></svg>
-      </div>
-      <div class="chart-card">
-        <h4>Dispositioning Rate Trend</h4>
-        <svg id="chart-dl-rate" viewBox="0 0 360 150"></svg>
-      </div>
-      <div class="chart-card">
-        <h4>DQSLA Rate Trend</h4>
-        <svg id="chart-oosla-rate" viewBox="0 0 360 150"></svg>
-      </div>
-      <div class="chart-card">
-        <h4>Headcount Ramp</h4>
-        <svg id="chart-headcount" viewBox="0 0 360 150"></svg>
-        <p class="chart-note">BPO 390 | Internal 18 + 2 TLs</p>
-      </div>
-      <div class="chart-card">
-        <h4>SLA Compliance Trend</h4>
-        <svg id="chart-sla" viewBox="0 0 360 150"></svg>
-      </div>
-      <div class="chart-card">
-        <h4>QC Pass Rate Trend</h4>
-        <svg id="chart-qc-overview" viewBox="0 0 360 150"></svg>
-      </div>
-    </div>
-
-    <!-- Data Sources Table -->
-    <div class="table-card">
-      <h3>Data Sources</h3>
-      <table>
-        <thead>
-          <tr><th>Data Point</th><th>Source</th><th>Table / File</th><th>Refresh</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Alert Volumes & Dispositioning Rate</td><td>Snowflake</td><td>APP_COMPLIANCE.APP_COMPLIANCE.UNIFIED_ALERT_FUNNEL</td><td>Daily</td></tr>
-          <tr><td>Denylist Rate</td><td>Snowflake</td><td>APP_COMPLIANCE.SCRATCH.COMPLIANCE_DENYLIST_MECHANISMS</td><td>Daily</td></tr>
-          <tr><td>SLA Performance</td><td>Snowflake</td><td>APP_COMPLIANCE.WFM_SLA_OPER_INVENTORY</td><td>Daily</td></tr>
-          <tr><td>Quality Control Scores</td><td>Snowflake</td><td>APP_COMPLIANCE.APP_COMPLIANCE.COMPLIANCE_QUALITY_ASSURANCE_CASES</td><td>Daily</td></tr>
-          <tr><td>BPO Headcount (Current)</td><td>Google Drive</td><td>BPO Block Roster Report (Monthly File)</td><td>Weekly</td></tr>
-          <tr><td>BPO Headcount (Trending)</td><td>Snowflake</td><td>APP_COMPLIANCE.CASH.BPO_ROSTER + FWC_ROSTER</td><td>Monthly</td></tr>
-          <tr><td>Internal Team</td><td>Static</td><td>16 Analysts + 2 Team Leads + 1 PPM</td><td>Manual</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <p style="text-align: center; color: #64748b; font-size: 14px; margin-top: 40px;">
+      Charts and additional metrics would be displayed here.
+    </p>
   </div>
 
   <!-- Tab 3: Deep Dive -->
   <div class="tab-content" id="deep-dive">
-    <div class="sub-tabs">
-      <button class="sub-tab active" data-subtab="volume">Volume</button>
-      <button class="sub-tab" data-subtab="quality-control">Quality Control</button>
-    </div>
-
-    <!-- Sub-tab: Volume -->
-    <div class="sub-tab-content active" id="volume">
-      <div class="deepdive-chart-card">
-        <h4>Monthly Volume by Subprogram</h4>
-        <svg id="chart-volume-stacked" viewBox="0 0 650 200"></svg>
-        <div class="chart-legend">
-          <div class="legend-item"><div class="legend-dot" style="background:#dc2626"></div>CDD</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div>EDD</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#16a34a"></div>Screening</div>
-        </div>
-      </div>
-
-      <div class="cards-row cards-row-3">
-        <div class="card card-accent red">
-          <div class="card-label">CDD (May)</div>
-          <div class="card-value">79,237</div>
-          <div class="card-detail">DL/Esc: 13.9% | Avg Days: 4.7</div>
-        </div>
-        <div class="card card-accent purple">
-          <div class="card-label">EDD (May)</div>
-          <div class="card-value">99,818</div>
-          <div class="card-detail">DL/Esc: 37.6% | Avg Days: 6.4</div>
-        </div>
-        <div class="card card-accent green">
-          <div class="card-label">Screening (May)</div>
-          <div class="card-value">150,127</div>
-          <div class="card-detail">DL/Esc: 0.53% | Avg Days: 5.0</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sub-tab: Quality Control -->
-    <div class="sub-tab-content" id="quality-control">
-      <div class="deepdive-chart-card">
-        <h4>QC Pass Rate by Subprogram</h4>
-        <svg id="chart-qc-hbar" viewBox="0 0 650 140"></svg>
-      </div>
-    </div>
+    <h2 class="section-header">Deep Dive Analysis</h2>
+    <p>Detailed breakdown of KYC metrics and performance indicators.</p>
   </div>
 
   <!-- Tab 4: Process -->
   <div class="tab-content" id="process">
-    <h2 class="section-header">KYC Subprogram Workflows</h2>
-
-    <div class="workflow-card">
-      <h3>CDD (Customer Due Diligence) Workflow</h3>
-      <div class="workflow-steps">
-        <div class="workflow-step">Customer Onboarding</div>
-        <span class="workflow-arrow">→</span>
-        <div class="workflow-step">Identity Verification (IDV)</div>
-        <span class="workflow-arrow">→</span>
-        <div class="workflow-step">Risk Assessment</div>
-        <span class="workflow-arrow">→</span>
-        <div class="workflow-step">Periodic Review</div>
-      </div>
-      <div class="workflow-outcomes">
-        <span class="workflow-outcome">✅ Verified / Low Risk</span>
-        <span class="workflow-outcome">⚠️ Escalate to EDD</span>
-        <span class="workflow-outcome">🚫 Denylist</span>
-        <span class="workflow-outcome">🔄 Request Additional Info</span>
-      </div>
-    </div>
-
-    <div class="workflow-card">
-      <h3>EDD (Enhanced Due Diligence) Workflow</h3>
-      <div class="workflow-steps">
-        <div class="workflow-step">EDD Trigger</div>
-        <span class="workflow-arrow">→</span>
-        <div class="workflow-step">Deep Review</div>
-        <span class="workflow-arrow">→</span>
-        <div class="workflow-step">Risk Determination</div>
-        <span class="workflow-arrow">→</span>
-        <div class="workflow-step">Ongoing Monitoring</div>
-      </div>
-      <div class="workflow-outcomes">
-        <span class="workflow-outcome">✅ Clear / Maintain</span>
-        <span class="workflow-outcome">⚠️ Escalate to SAR</span>
-        <span class="workflow-outcome">🚫 Denylist</span>
-        <span class="workflow-outcome">🔄 Restrict & Monitor</span>
-      </div>
-    </div>
-
-    <h2 class="section-header">SLA Overview</h2>
-    <div class="sla-cards">
-      <div class="sla-card">
-        <div class="sla-value">1</div>
-        <div class="sla-label">bIDV Manual Review</div>
-        <div class="sla-unit">Calendar days</div>
-      </div>
-      <div class="sla-card">
-        <div class="sla-value">30</div>
-        <div class="sla-label">Most CDD/EDD/Screening</div>
-        <div class="sla-unit">Calendar days</div>
-      </div>
-      <div class="sla-card">
-        <div class="sla-value">30</div>
-        <div class="sla-label">Screening BAU</div>
-        <div class="sla-unit">Business days</div>
-      </div>
-      <div class="sla-card">
-        <div class="sla-value">120</div>
-        <div class="sla-label">CDD Periodic Review</div>
-        <div class="sla-unit">Calendar days</div>
-      </div>
-    </div>
+    <h2 class="section-header">Process & Controls</h2>
+    <p>Overview of KYC procedures and governance framework.</p>
   </div>
 </div>
 
@@ -441,318 +184,8 @@ document.querySelectorAll('.tab').forEach(tab => {
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById(tab.dataset.tab).classList.add('active');
-    setTimeout(initCharts, 50);
   });
 });
-
-// Sub-tab switching
-document.querySelectorAll('.sub-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    const parent = tab.closest('.tab-content');
-    parent.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
-    parent.querySelectorAll('.sub-tab-content').forEach(c => c.classList.remove('active'));
-    tab.classList.add('active');
-    parent.querySelector('#' + tab.dataset.subtab).classList.add('active');
-    setTimeout(initCharts, 50);
-  });
-});
-
-// Chart helpers
-function drawBarChart(svgId, data, color) {
-  const svg = document.getElementById(svgId);
-  if (!svg) return;
-  svg.innerHTML = '';
-  const w = 360, h = 150, pad = {t: 10, r: 10, b: 40, l: 10};
-  const chartW = w - pad.l - pad.r;
-  const chartH = h - pad.t - pad.b;
-  const maxVal = Math.max(...data.map(d => d.value)) * 1.15;
-  const barW = chartW / data.length * 0.6;
-  const gap = chartW / data.length;
-
-  data.forEach((d, i) => {
-    const barH = (d.value / maxVal) * chartH;
-    const x = pad.l + i * gap + (gap - barW) / 2;
-    const y = pad.t + chartH - barH;
-
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    rect.setAttribute('x', x);
-    rect.setAttribute('y', y);
-    rect.setAttribute('width', barW);
-    rect.setAttribute('height', barH);
-    rect.setAttribute('fill', color);
-    rect.setAttribute('rx', '4');
-    svg.appendChild(rect);
-
-    // Value label
-    const valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    valText.setAttribute('x', x + barW / 2);
-    valText.setAttribute('y', y - 5);
-    valText.setAttribute('text-anchor', 'middle');
-    valText.setAttribute('font-size', '10');
-    valText.setAttribute('fill', '#64748b');
-    valText.textContent = d.label;
-    svg.appendChild(valText);
-
-    // X label
-    const xText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    xText.setAttribute('x', x + barW / 2);
-    xText.setAttribute('y', h - 10);
-    xText.setAttribute('text-anchor', 'middle');
-    xText.setAttribute('font-size', '10');
-    xText.setAttribute('fill', '#94a3b8');
-    xText.textContent = d.month;
-    svg.appendChild(xText);
-  });
-}
-
-function drawLineChart(svgId, data, color, refLine) {
-  const svg = document.getElementById(svgId);
-  if (!svg) return;
-  svg.innerHTML = '';
-  const w = 360, h = 150, pad = {t: 15, r: 15, b: 40, l: 35};
-  const chartW = w - pad.l - pad.r;
-  const chartH = h - pad.t - pad.b;
-  const maxVal = Math.max(...data.map(d => d.value), refLine || 0) * 1.2;
-  const minVal = 0;
-
-  // Reference line
-  if (refLine !== undefined) {
-    const refY = pad.t + chartH - ((refLine - minVal) / (maxVal - minVal)) * chartH;
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', pad.l);
-    line.setAttribute('y1', refY);
-    line.setAttribute('x2', w - pad.r);
-    line.setAttribute('y2', refY);
-    line.setAttribute('stroke', '#e2e8f0');
-    line.setAttribute('stroke-dasharray', '4,4');
-    svg.appendChild(line);
-  }
-
-  // Line path
-  const points = data.map((d, i) => {
-    const x = pad.l + (i / (data.length - 1)) * chartW;
-    const y = pad.t + chartH - ((d.value - minVal) / (maxVal - minVal)) * chartH;
-    return {x, y};
-  });
-
-  const pathD = points.map((p, i) => (i === 0 ? 'M' : 'L') + p.x + ',' + p.y).join(' ');
-  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  path.setAttribute('d', pathD);
-  path.setAttribute('fill', 'none');
-  path.setAttribute('stroke', color);
-  path.setAttribute('stroke-width', '2.5');
-  path.setAttribute('stroke-linecap', 'round');
-  svg.appendChild(path);
-
-  // Dots and labels
-  points.forEach((p, i) => {
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', p.x);
-    circle.setAttribute('cy', p.y);
-    circle.setAttribute('r', '4');
-    circle.setAttribute('fill', color);
-    svg.appendChild(circle);
-
-    const valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    valText.setAttribute('x', p.x);
-    valText.setAttribute('y', p.y - 10);
-    valText.setAttribute('text-anchor', 'middle');
-    valText.setAttribute('font-size', '9');
-    valText.setAttribute('fill', '#475569');
-    valText.setAttribute('font-weight', '600');
-    valText.textContent = data[i].value + '%';
-    svg.appendChild(valText);
-
-    const xText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    xText.setAttribute('x', p.x);
-    xText.setAttribute('y', h - 10);
-    xText.setAttribute('text-anchor', 'middle');
-    xText.setAttribute('font-size', '10');
-    xText.setAttribute('fill', '#94a3b8');
-    xText.textContent = data[i].month;
-    svg.appendChild(xText);
-  });
-}
-
-function drawVolumeStackedChart(svgId, data) {
-  const svg = document.getElementById(svgId);
-  if (!svg) return;
-  svg.innerHTML = '';
-  const w = 650, h = 200, pad = {t: 20, r: 20, b: 50, l: 50};
-  const chartW = w - pad.l - pad.r;
-  const chartH = h - pad.t - pad.b;
-  const maxVal = Math.max(...data.map(d => d.cdd + d.edd + d.screening)) * 1.15;
-  const barW = chartW / data.length * 0.55;
-  const gap = chartW / data.length;
-  const colors = {cdd: '#dc2626', edd: '#8b5cf6', screening: '#16a34a'};
-
-  data.forEach((d, i) => {
-    const x = pad.l + i * gap + (gap - barW) / 2;
-    let cumH = 0;
-
-    ['screening', 'edd', 'cdd'].forEach(key => {
-      const segH = (d[key] / maxVal) * chartH;
-      const y = pad.t + chartH - cumH - segH;
-      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      rect.setAttribute('x', x);
-      rect.setAttribute('y', y);
-      rect.setAttribute('width', barW);
-      rect.setAttribute('height', segH);
-      rect.setAttribute('fill', colors[key]);
-      rect.setAttribute('rx', key === 'cdd' ? '4' : '0');
-      svg.appendChild(rect);
-      cumH += segH;
-    });
-
-    // Total label
-    const totalY = pad.t + chartH - cumH - 8;
-    const valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    valText.setAttribute('x', x + barW / 2);
-    valText.setAttribute('y', totalY);
-    valText.setAttribute('text-anchor', 'middle');
-    valText.setAttribute('font-size', '11');
-    valText.setAttribute('fill', '#475569');
-    valText.setAttribute('font-weight', '600');
-    valText.textContent = Math.round((d.cdd + d.edd + d.screening) / 1000) + 'k';
-    svg.appendChild(valText);
-
-    // Month label
-    const xText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    xText.setAttribute('x', x + barW / 2);
-    xText.setAttribute('y', h - 15);
-    xText.setAttribute('text-anchor', 'middle');
-    xText.setAttribute('font-size', '11');
-    xText.setAttribute('fill', '#94a3b8');
-    xText.textContent = d.month;
-    svg.appendChild(xText);
-  });
-}
-
-function drawQCHorizontalBarChart(svgId) {
-  const svg = document.getElementById(svgId);
-  if (!svg) return;
-  svg.innerHTML = '';
-  const w = 650, h = 140;
-  const pad = {t: 10, r: 60, b: 30, l: 100};
-  const chartW = w - pad.l - pad.r;
-  const chartH = h - pad.t - pad.b;
-  const data = [
-    {label: 'CDD', value: 93.3, color: '#dc2626'},
-    {label: 'EDD', value: 94.4, color: '#8b5cf6'},
-    {label: 'Screening', value: 93.3, color: '#16a34a'}
-  ];
-  const barH = chartH / data.length * 0.6;
-  const gap = chartH / data.length;
-  const target = 90;
-
-  // Target line
-  const targetX = pad.l + (target / 100) * chartW;
-  const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-  line.setAttribute('x1', targetX);
-  line.setAttribute('y1', pad.t);
-  line.setAttribute('x2', targetX);
-  line.setAttribute('y2', h - pad.b);
-  line.setAttribute('stroke', '#e2e8f0');
-  line.setAttribute('stroke-dasharray', '4,4');
-  svg.appendChild(line);
-
-  data.forEach((d, i) => {
-    const y = pad.t + i * gap + (gap - barH) / 2;
-    const barWidth = (d.value / 100) * chartW;
-
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    rect.setAttribute('x', pad.l);
-    rect.setAttribute('y', y);
-    rect.setAttribute('width', barWidth);
-    rect.setAttribute('height', barH);
-    rect.setAttribute('fill', d.color);
-    rect.setAttribute('rx', '4');
-    svg.appendChild(rect);
-
-    // Label
-    const lbl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    lbl.setAttribute('x', pad.l - 8);
-    lbl.setAttribute('y', y + barH / 2 + 4);
-    lbl.setAttribute('text-anchor', 'end');
-    lbl.setAttribute('font-size', '12');
-    lbl.setAttribute('fill', '#334155');
-    lbl.setAttribute('font-weight', '500');
-    lbl.textContent = d.label;
-    svg.appendChild(lbl);
-
-    // Value
-    const val = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    val.setAttribute('x', pad.l + barWidth + 8);
-    val.setAttribute('y', y + barH / 2 + 4);
-    val.setAttribute('font-size', '12');
-    val.setAttribute('fill', '#475569');
-    val.setAttribute('font-weight', '600');
-    val.textContent = d.value + '%';
-    svg.appendChild(val);
-  });
-}
-
-// Initialize all charts with corrected Tableau data
-function initCharts() {
-  // Monthly Alert Volume - Updated with corrected figures (excluding bulk closed alerts)
-  drawBarChart('chart-volume', [
-    {month: 'Jan', value: 213738, label: '214k'},
-    {month: 'Feb', value: 252182, label: '252k'},
-    {month: 'Mar', value: 336960, label: '337k'},
-    {month: 'Apr', value: 249053, label: '249k'},
-    {month: 'May', value: 329182, label: '329k'}
-  ], '#3b82f6');
-
-  // Dispositioning Rate
-  drawLineChart('chart-dl-rate', [
-    {month: 'Jan', value: 14.2},
-    {month: 'Feb', value: 15.8},
-    {month: 'Mar', value: 16.1},
-    {month: 'Apr', value: 17.2},
-    {month: 'May', value: 17.8}
-  ], '#f97316', 15);
-
-  // DQSLA Rate
-  drawLineChart('chart-oosla-rate', [
-    {month: 'Jan', value: 0.45},
-    {month: 'Feb', value: 0.38},
-    {month: 'Mar', value: 0.32},
-    {month: 'Apr', value: 0.31},
-    {month: 'May', value: 0.29}
-  ], '#dc2626', 5);
-
-  // SLA Compliance
-  drawLineChart('chart-sla', [
-    {month: 'Jan', value: 99.2},
-    {month: 'Feb', value: 99.4},
-    {month: 'Mar', value: 99.5},
-    {month: 'Apr', value: 99.6},
-    {month: 'May', value: 99.7}
-  ], '#16a34a', 90);
-
-  // QC Pass Rate
-  drawLineChart('chart-qc-overview', [
-    {month: 'Jan', value: 92.8},
-    {month: 'Feb', value: 93.1},
-    {month: 'Mar', value: 93.3},
-    {month: 'Apr', value: 93.4},
-    {month: 'May', value: 93.6}
-  ], '#8b5cf6', 90);
-
-  // Volume by Subprogram - Updated with corrected Tableau figures
-  drawVolumeStackedChart('chart-volume-stacked', [
-    {month: 'Jan 26', cdd: 77089, edd: 81239, screening: 55410},
-    {month: 'Feb 26', cdd: 61696, edd: 78641, screening: 111845},
-    {month: 'Mar 26', cdd: 162374, edd: 90666, screening: 83920},
-    {month: 'Apr 26', cdd: 69733, edd: 84173, screening: 95147},
-    {month: 'May 26', cdd: 79237, edd: 99818, screening: 150127}
-  ]);
-
-  drawQCHorizontalBarChart('chart-qc-hbar');
-}
-
-// Init on load
-document.addEventListener('DOMContentLoaded', initCharts);
 </script>
 </body>
 </html>
