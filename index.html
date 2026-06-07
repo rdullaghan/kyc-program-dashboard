@@ -13,7 +13,7 @@
         <div class="header">
             <h1>KYC Program Stats</h1>
             <div class="breadcrumb">
-                Know Your Customer > Customer Due Diligence > All Products & Jurisdictions > Last updated: Jun 7, 2026 4:16 PM PT
+                Know Your Customer > Customer Due Diligence > All Products & Jurisdictions > Last updated: Jun 7, 2026 4:31 PM PT
             </div>
             <div class="user-info">
                 <span class="status-dot"></span>
@@ -23,96 +23,99 @@
 
         <!-- Navigation Tabs -->
         <div class="nav-tabs">
-            <button class="nav-tab active" data-tab="who-we-are">Who We Are</button>
-            <button class="nav-tab" data-tab="program-overview">Program Overview</button>
+            <button class="nav-tab" data-tab="who-we-are">Who We Are</button>
+            <button class="nav-tab active" data-tab="program-overview">Program Overview</button>
             <button class="nav-tab" data-tab="deep-dive">Deep Dive</button>
             <button class="nav-tab" data-tab="process">Process</button>
         </div>
 
         <!-- Program Overview Tab (Main Dashboard) -->
         <div id="program-overview" class="tab-content active">
-            <!-- Top Metrics Cards -->
-            <div class="metrics-row">
+            <!-- Top Metrics Row -->
+            <div class="metrics-container">
                 <div class="metric-card">
                     <div class="metric-label">TOTAL VOLUME (MAY)</div>
-                    <div class="metric-value">329,182</div>
+                    <div class="metric-value large">329,182</div>
                     <div class="metric-change positive">↑ 32% vs prior month</div>
                 </div>
                 
                 <div class="metric-card">
                     <div class="metric-label">DISPOSITIONING RATE</div>
                     <div class="metric-value">17.8%</div>
-                    <div class="metric-change neutral">Target 20-25% of total</div>
+                    <div class="metric-subtitle">Target 20-25% of total</div>
                 </div>
                 
                 <div class="metric-card">
                     <div class="metric-label">DQSLA + BACKLOG</div>
                     <div class="metric-value green">0.29%</div>
-                    <div class="metric-change neutral">+ New 12% of total</div>
+                    <div class="metric-subtitle">+ New 12% of total</div>
                 </div>
                 
                 <div class="metric-card">
                     <div class="metric-label">TOTAL HEADCOUNT</div>
                     <div class="metric-value">410</div>
-                    <div class="metric-change neutral">BPO 390 | Internal 16 + 2 TLs</div>
+                    <div class="metric-subtitle">BPO 390 | Internal 16 + 2 TLs</div>
                 </div>
                 
                 <div class="metric-card">
                     <div class="metric-label">SLA COMPLIANCE</div>
                     <div class="metric-value green">99.7%</div>
-                    <div class="metric-change neutral">Target ≥95% by volume (1.3B total)</div>
+                    <div class="metric-subtitle">Target ≥95% by volume (1.3B total)</div>
                 </div>
                 
                 <div class="metric-card">
                     <div class="metric-label">QC PASS RATE</div>
                     <div class="metric-value green">93.6%</div>
-                    <div class="metric-change neutral">Target ≥ 90%</div>
+                    <div class="metric-subtitle">Target ≥ 90%</div>
                 </div>
             </div>
 
-            <!-- Charts Section -->
-            <div class="charts-section">
+            <!-- Charts Grid -->
+            <div class="charts-grid">
                 <!-- Monthly Alert Volume -->
-                <div class="chart-container">
+                <div class="chart-card">
                     <h3>Monthly Alert Volume</h3>
                     <canvas id="monthlyVolumeChart"></canvas>
+                    <div class="chart-note">Source: APP_COMPLIANCE.UNIFIED_ALERT_FUNNEL<br>
+                    BPO SQUARE (AMLEX, CASH, AML, AMLCX)<br>
+                    APP SQUARE (AMLEX, CASH, AML, AMLCX) | PEP | Sanctions | 7 TM | 1</div>
                 </div>
 
                 <!-- DL/Subscription Rate Trend -->
-                <div class="chart-container">
+                <div class="chart-card">
                     <h3>DL/Subscription Rate Trend</h3>
                     <canvas id="dlSubscriptionChart"></canvas>
                 </div>
 
                 <!-- DQSLA Rate Trend -->
-                <div class="chart-container">
+                <div class="chart-card">
                     <h3>DQSLA Rate Trend</h3>
                     <canvas id="dqslaChart"></canvas>
                 </div>
 
                 <!-- Headcount Ramp -->
-                <div class="chart-container">
+                <div class="chart-card">
                     <h3>Headcount Ramp</h3>
                     <canvas id="headcountChart"></canvas>
                 </div>
 
                 <!-- SLA Compliance Trend -->
-                <div class="chart-container">
+                <div class="chart-card">
                     <h3>SLA Compliance Trend</h3>
                     <canvas id="slaChart"></canvas>
                 </div>
 
                 <!-- QC Pass Rate Trend -->
-                <div class="chart-container">
+                <div class="chart-card">
                     <h3>QC Pass Rate Trend</h3>
                     <canvas id="qcChart"></canvas>
                 </div>
             </div>
 
-            <!-- Data Sources -->
-            <div class="data-sources-section">
+            <!-- Data Sources Table -->
+            <div class="data-sources">
                 <h3>Data Sources</h3>
-                <table class="data-sources-table">
+                <table class="data-table">
                     <thead>
                         <tr>
                             <th>Data Point</th>
@@ -169,10 +172,56 @@
             </div>
         </div>
 
-        <!-- Other tabs (Who We Are, Deep Dive, Process) -->
+        <!-- Other Tabs -->
         <div id="who-we-are" class="tab-content">
             <div class="program-description">
                 <p>The Know Your Customer (KYC) program ensures Block identifies, verifies, and monitors customers throughout their lifecycle. We conduct Customer Due Diligence (CDD), Enhanced Due Diligence (EDD), and ongoing screening to prevent financial crime, comply with BSA/AML regulations, and protect Block's ecosystem from illicit actors.</p>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="key-stats-section">
+                <h2>Key Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-card blue">
+                        <div class="stat-label">ALERTS REVIEWED / MONTH</div>
+                        <div class="stat-value">270K+</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-label">DISPOSITIONING RATE</div>
+                        <div class="stat-value">19.5%</div>
+                    </div>
+                    <div class="stat-card red">
+                        <div class="stat-label">DQSLA RATE</div>
+                        <div class="stat-value">3.5%</div>
+                        <div class="stat-subtitle">3 reporting</div>
+                    </div>
+                    <div class="stat-card purple">
+                        <div class="stat-label">DECISION ACCURACY</div>
+                        <div class="stat-value">96.3%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why We Matter -->
+            <div class="why-we-matter-section">
+                <h2>Why We Matter</h2>
+                <div class="matter-grid">
+                    <div class="matter-card">
+                        <div class="matter-icon">🏛️</div>
+                        <h3>Regulatory Compliance</h3>
+                        <p>Ensures Block meets BSA/AML and FinCEN CDD Rule obligations, preventing regulatory action and maintaining banking partnerships.</p>
+                    </div>
+                    <div class="matter-card">
+                        <div class="matter-icon">🔍</div>
+                        <h3>Risk-Based Monitoring</h3>
+                        <p>Proactively monitors customers to identify changes in customer risk profiles, ensuring high-risk customers receive appropriate oversight.</p>
+                    </div>
+                    <div class="matter-card">
+                        <div class="matter-icon">🛡️</div>
+                        <h3>Gatekeeper Function</h3>
+                        <p>KYC serves as the first and ongoing line of defense — from onboarding verification through continuous monitoring and screening.</p>
+                    </div>
+                </div>
             </div>
         </div>
 

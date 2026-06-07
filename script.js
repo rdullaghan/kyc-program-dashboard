@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initAllCharts();
 });
 
-// Chart Colors (matching the screenshot style)
+// Chart Colors (matching the clean, minimal style)
 const chartColors = {
-    primary: '#1da1f2',
-    secondary: '#17bf63', 
-    tertiary: '#794bc4',
-    accent: '#e0245e',
-    warning: '#ff9500',
-    neutral: '#657786'
+    primary: '#4A90E2',
+    secondary: '#7ED321', 
+    tertiary: '#9013FE',
+    accent: '#F5A623',
+    warning: '#D0021B',
+    neutral: '#9B9B9B'
 };
 
 // Initialize all charts
@@ -48,7 +48,7 @@ function initAllCharts() {
     initQCChart();
 }
 
-// Monthly Alert Volume Chart
+// Monthly Alert Volume Chart (Bar Chart)
 function initMonthlyVolumeChart() {
     const ctx = document.getElementById('monthlyVolumeChart');
     if (ctx && !ctx.chartInstance) {
@@ -58,15 +58,9 @@ function initMonthlyVolumeChart() {
                 labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'],
                 datasets: [{
                     data: [213738, 252182, 336960, 249053, 329182],
-                    backgroundColor: [
-                        '#1da1f2',
-                        '#1da1f2', 
-                        '#1da1f2',
-                        '#1da1f2',
-                        '#17bf63' // Current month in green
-                    ],
+                    backgroundColor: '#4A90E2',
                     borderWidth: 0,
-                    borderRadius: 4
+                    borderRadius: 2
                 }]
             },
             options: {
@@ -75,9 +69,17 @@ function initMonthlyVolumeChart() {
                 plugins: {
                     legend: { display: false },
                     tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 0,
+                        cornerRadius: 4,
+                        displayColors: false,
+                        titleFont: { size: 11 },
+                        bodyFont: { size: 10 },
                         callbacks: {
                             label: function(context) {
-                                return context.parsed.y.toLocaleString() + ' alerts';
+                                return context.parsed.y.toLocaleString();
                             }
                         }
                     }
@@ -89,12 +91,20 @@ function initMonthlyVolumeChart() {
                             callback: function(value) {
                                 return (value / 1000) + 'K';
                             },
-                            font: { size: 10 }
+                            font: { size: 9 },
+                            color: '#9B9B9B'
                         },
-                        grid: { display: false }
+                        grid: { 
+                            display: true,
+                            color: '#f0f0f0',
+                            drawBorder: false
+                        }
                     },
                     x: {
-                        ticks: { font: { size: 10 } },
+                        ticks: { 
+                            font: { size: 9 },
+                            color: '#9B9B9B'
+                        },
                         grid: { display: false }
                     }
                 }
@@ -103,7 +113,7 @@ function initMonthlyVolumeChart() {
     }
 }
 
-// DL/Subscription Rate Trend Chart
+// DL/Subscription Rate Trend Chart (Line Chart)
 function initDLSubscriptionChart() {
     const ctx = document.getElementById('dlSubscriptionChart');
     if (ctx && !ctx.chartInstance) {
@@ -113,13 +123,15 @@ function initDLSubscriptionChart() {
                 labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'],
                 datasets: [{
                     data: [14.2, 15.8, 16.1, 17.2, 17.8],
-                    borderColor: '#ff9500',
-                    backgroundColor: 'rgba(255, 149, 0, 0.1)',
+                    borderColor: '#F5A623',
+                    backgroundColor: 'rgba(245, 166, 35, 0.1)',
                     borderWidth: 2,
-                    fill: true,
-                    tension: 0.3,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#ff9500'
+                    fill: false,
+                    tension: 0.1,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#F5A623',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 1
                 }]
             },
             options: {
@@ -128,6 +140,14 @@ function initDLSubscriptionChart() {
                 plugins: {
                     legend: { display: false },
                     tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 0,
+                        cornerRadius: 4,
+                        displayColors: false,
+                        titleFont: { size: 11 },
+                        bodyFont: { size: 10 },
                         callbacks: {
                             label: function(context) {
                                 return context.parsed.y + '%';
@@ -138,17 +158,25 @@ function initDLSubscriptionChart() {
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 25,
+                        max: 20,
                         ticks: {
                             callback: function(value) {
                                 return value + '%';
                             },
-                            font: { size: 10 }
+                            font: { size: 9 },
+                            color: '#9B9B9B'
                         },
-                        grid: { display: false }
+                        grid: { 
+                            display: true,
+                            color: '#f0f0f0',
+                            drawBorder: false
+                        }
                     },
                     x: {
-                        ticks: { font: { size: 10 } },
+                        ticks: { 
+                            font: { size: 9 },
+                            color: '#9B9B9B'
+                        },
                         grid: { display: false }
                     }
                 }
@@ -157,7 +185,7 @@ function initDLSubscriptionChart() {
     }
 }
 
-// DQSLA Rate Trend Chart
+// DQSLA Rate Trend Chart (Line Chart)
 function initDQSLAChart() {
     const ctx = document.getElementById('dqslaChart');
     if (ctx && !ctx.chartInstance) {
@@ -167,13 +195,15 @@ function initDQSLAChart() {
                 labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'],
                 datasets: [{
                     data: [0.45, 0.38, 0.32, 0.31, 0.29],
-                    borderColor: '#e0245e',
-                    backgroundColor: 'rgba(224, 36, 94, 0.1)',
+                    borderColor: '#D0021B',
+                    backgroundColor: 'rgba(208, 2, 27, 0.1)',
                     borderWidth: 2,
-                    fill: true,
-                    tension: 0.3,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#e0245e'
+                    fill: false,
+                    tension: 0.1,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#D0021B',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 1
                 }]
             },
             options: {
@@ -182,6 +212,14 @@ function initDQSLAChart() {
                 plugins: {
                     legend: { display: false },
                     tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 0,
+                        cornerRadius: 4,
+                        displayColors: false,
+                        titleFont: { size: 11 },
+                        bodyFont: { size: 10 },
                         callbacks: {
                             label: function(context) {
                                 return context.parsed.y + '%';
@@ -192,17 +230,25 @@ function initDQSLAChart() {
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 1.0,
+                        max: 0.5,
                         ticks: {
                             callback: function(value) {
                                 return value + '%';
                             },
-                            font: { size: 10 }
+                            font: { size: 9 },
+                            color: '#9B9B9B'
                         },
-                        grid: { display: false }
+                        grid: { 
+                            display: true,
+                            color: '#f0f0f0',
+                            drawBorder: false
+                        }
                     },
                     x: {
-                        ticks: { font: { size: 10 } },
+                        ticks: { 
+                            font: { size: 9 },
+                            color: '#9B9B9B'
+                        },
                         grid: { display: false }
                     }
                 }
@@ -211,7 +257,7 @@ function initDQSLAChart() {
     }
 }
 
-// Headcount Ramp Chart
+// Headcount Ramp Chart (Bar Chart)
 function initHeadcountChart() {
     const ctx = document.getElementById('headcountChart');
     if (ctx && !ctx.chartInstance) {
@@ -221,9 +267,9 @@ function initHeadcountChart() {
                 labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'],
                 datasets: [{
                     data: [375, 385, 395, 405, 410],
-                    backgroundColor: '#794bc4',
+                    backgroundColor: '#9013FE',
                     borderWidth: 0,
-                    borderRadius: 4
+                    borderRadius: 2
                 }]
             },
             options: {
@@ -232,6 +278,14 @@ function initHeadcountChart() {
                 plugins: {
                     legend: { display: false },
                     tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 0,
+                        cornerRadius: 4,
+                        displayColors: false,
+                        titleFont: { size: 11 },
+                        bodyFont: { size: 10 },
                         callbacks: {
                             label: function(context) {
                                 return context.parsed.y + ' people';
@@ -243,11 +297,21 @@ function initHeadcountChart() {
                     y: {
                         beginAtZero: true,
                         max: 450,
-                        ticks: { font: { size: 10 } },
-                        grid: { display: false }
+                        ticks: { 
+                            font: { size: 9 },
+                            color: '#9B9B9B'
+                        },
+                        grid: { 
+                            display: true,
+                            color: '#f0f0f0',
+                            drawBorder: false
+                        }
                     },
                     x: {
-                        ticks: { font: { size: 10 } },
+                        ticks: { 
+                            font: { size: 9 },
+                            color: '#9B9B9B'
+                        },
                         grid: { display: false }
                     }
                 }
@@ -256,7 +320,7 @@ function initHeadcountChart() {
     }
 }
 
-// SLA Compliance Trend Chart
+// SLA Compliance Trend Chart (Line Chart)
 function initSLAChart() {
     const ctx = document.getElementById('slaChart');
     if (ctx && !ctx.chartInstance) {
@@ -266,13 +330,15 @@ function initSLAChart() {
                 labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'],
                 datasets: [{
                     data: [99.2, 99.4, 99.5, 99.6, 99.7],
-                    borderColor: '#17bf63',
-                    backgroundColor: 'rgba(23, 191, 99, 0.1)',
+                    borderColor: '#7ED321',
+                    backgroundColor: 'rgba(126, 211, 33, 0.1)',
                     borderWidth: 2,
-                    fill: true,
-                    tension: 0.3,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#17bf63'
+                    fill: false,
+                    tension: 0.1,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#7ED321',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 1
                 }]
             },
             options: {
@@ -281,6 +347,14 @@ function initSLAChart() {
                 plugins: {
                     legend: { display: false },
                     tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 0,
+                        cornerRadius: 4,
+                        displayColors: false,
+                        titleFont: { size: 11 },
+                        bodyFont: { size: 10 },
                         callbacks: {
                             label: function(context) {
                                 return context.parsed.y + '%';
@@ -296,12 +370,20 @@ function initSLAChart() {
                             callback: function(value) {
                                 return value + '%';
                             },
-                            font: { size: 10 }
+                            font: { size: 9 },
+                            color: '#9B9B9B'
                         },
-                        grid: { display: false }
+                        grid: { 
+                            display: true,
+                            color: '#f0f0f0',
+                            drawBorder: false
+                        }
                     },
                     x: {
-                        ticks: { font: { size: 10 } },
+                        ticks: { 
+                            font: { size: 9 },
+                            color: '#9B9B9B'
+                        },
                         grid: { display: false }
                     }
                 }
@@ -310,7 +392,7 @@ function initSLAChart() {
     }
 }
 
-// QC Pass Rate Trend Chart
+// QC Pass Rate Trend Chart (Line Chart)
 function initQCChart() {
     const ctx = document.getElementById('qcChart');
     if (ctx && !ctx.chartInstance) {
@@ -320,13 +402,15 @@ function initQCChart() {
                 labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'],
                 datasets: [{
                     data: [92.8, 93.1, 93.3, 93.4, 93.6],
-                    borderColor: '#1da1f2',
-                    backgroundColor: 'rgba(29, 161, 242, 0.1)',
+                    borderColor: '#4A90E2',
+                    backgroundColor: 'rgba(74, 144, 226, 0.1)',
                     borderWidth: 2,
-                    fill: true,
-                    tension: 0.3,
-                    pointRadius: 4,
-                    pointBackgroundColor: '#1da1f2'
+                    fill: false,
+                    tension: 0.1,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#4A90E2',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 1
                 }]
             },
             options: {
@@ -335,6 +419,14 @@ function initQCChart() {
                 plugins: {
                     legend: { display: false },
                     tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderWidth: 0,
+                        cornerRadius: 4,
+                        displayColors: false,
+                        titleFont: { size: 11 },
+                        bodyFont: { size: 10 },
                         callbacks: {
                             label: function(context) {
                                 return context.parsed.y + '%';
@@ -350,12 +442,20 @@ function initQCChart() {
                             callback: function(value) {
                                 return value + '%';
                             },
-                            font: { size: 10 }
+                            font: { size: 9 },
+                            color: '#9B9B9B'
                         },
-                        grid: { display: false }
+                        grid: { 
+                            display: true,
+                            color: '#f0f0f0',
+                            drawBorder: false
+                        }
                     },
                     x: {
-                        ticks: { font: { size: 10 } },
+                        ticks: { 
+                            font: { size: 9 },
+                            color: '#9B9B9B'
+                        },
                         grid: { display: false }
                     }
                 }
@@ -390,8 +490,15 @@ function handleChartError(error, chartName) {
     console.error(`Error initializing ${chartName}:`, error);
 }
 
-// Add smooth animations
-Chart.defaults.animation.duration = 800;
+// Chart defaults for consistent styling
+Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif';
+Chart.defaults.font.size = 10;
+Chart.defaults.color = '#9B9B9B';
+Chart.defaults.animation.duration = 600;
 Chart.defaults.animation.easing = 'easeOutQuart';
+
+// Performance optimization
+Chart.defaults.interaction.intersect = false;
+Chart.defaults.interaction.mode = 'index';
 
 console.log('KYC Dashboard loaded successfully');
