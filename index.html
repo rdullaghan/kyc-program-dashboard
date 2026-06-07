@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Program Stats</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>KYC Program Stats</h1>
+            <div class="breadcrumb">
+                Know Your Customer > Customer Due Diligence > All Products & Jurisdictions > Last updated: Jun 7, 2026 4:16 PM PT
+            </div>
+            <div class="user-info">
+                <span class="status-dot"></span>
+                <span>r.dullaghan</span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="who-we-are">Who We Are</button>
+            <button class="nav-tab" data-tab="program-overview">Program Overview</button>
+            <button class="nav-tab" data-tab="deep-dive">Deep Dive</button>
+            <button class="nav-tab" data-tab="process">Process</button>
+        </div>
+
+        <!-- Program Overview Tab (Main Dashboard) -->
+        <div id="program-overview" class="tab-content active">
+            <!-- Top Metrics Cards -->
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <div class="metric-label">TOTAL VOLUME (MAY)</div>
+                    <div class="metric-value">329,182</div>
+                    <div class="metric-change positive">↑ 32% vs prior month</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">DISPOSITIONING RATE</div>
+                    <div class="metric-value">17.8%</div>
+                    <div class="metric-change neutral">Target 20-25% of total</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">DQSLA + BACKLOG</div>
+                    <div class="metric-value green">0.29%</div>
+                    <div class="metric-change neutral">+ New 12% of total</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">TOTAL HEADCOUNT</div>
+                    <div class="metric-value">410</div>
+                    <div class="metric-change neutral">BPO 390 | Internal 16 + 2 TLs</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">SLA COMPLIANCE</div>
+                    <div class="metric-value green">99.7%</div>
+                    <div class="metric-change neutral">Target ≥95% by volume (1.3B total)</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">QC PASS RATE</div>
+                    <div class="metric-value green">93.6%</div>
+                    <div class="metric-change neutral">Target ≥ 90%</div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <!-- Monthly Alert Volume -->
+                <div class="chart-container">
+                    <h3>Monthly Alert Volume</h3>
+                    <canvas id="monthlyVolumeChart"></canvas>
+                </div>
+
+                <!-- DL/Subscription Rate Trend -->
+                <div class="chart-container">
+                    <h3>DL/Subscription Rate Trend</h3>
+                    <canvas id="dlSubscriptionChart"></canvas>
+                </div>
+
+                <!-- DQSLA Rate Trend -->
+                <div class="chart-container">
+                    <h3>DQSLA Rate Trend</h3>
+                    <canvas id="dqslaChart"></canvas>
+                </div>
+
+                <!-- Headcount Ramp -->
+                <div class="chart-container">
+                    <h3>Headcount Ramp</h3>
+                    <canvas id="headcountChart"></canvas>
+                </div>
+
+                <!-- SLA Compliance Trend -->
+                <div class="chart-container">
+                    <h3>SLA Compliance Trend</h3>
+                    <canvas id="slaChart"></canvas>
+                </div>
+
+                <!-- QC Pass Rate Trend -->
+                <div class="chart-container">
+                    <h3>QC Pass Rate Trend</h3>
+                    <canvas id="qcChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Data Sources -->
+            <div class="data-sources-section">
+                <h3>Data Sources</h3>
+                <table class="data-sources-table">
+                    <thead>
+                        <tr>
+                            <th>Data Point</th>
+                            <th>Source</th>
+                            <th>Table / File</th>
+                            <th>Refresh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alert Volumes & Dispositioning Rate</td>
+                            <td>Snowflake</td>
+                            <td>APP_COMPLIANCE.APP_COMPLIANCE.UNIFIED_ALERT_FUNNEL</td>
+                            <td>Daily</td>
+                        </tr>
+                        <tr>
+                            <td>Denylist Rate</td>
+                            <td>Snowflake</td>
+                            <td>APP_COMPLIANCE.SCRATCH.COMPLIANCE_DENYLIST_MECHANISMS</td>
+                            <td>Daily</td>
+                        </tr>
+                        <tr>
+                            <td>SLA Performance</td>
+                            <td>Snowflake</td>
+                            <td>APP_COMPLIANCE.WFM_SLA_OPER_INVENTORY</td>
+                            <td>Daily</td>
+                        </tr>
+                        <tr>
+                            <td>Quality Control Scores</td>
+                            <td>Snowflake</td>
+                            <td>APP_COMPLIANCE.APP_COMPLIANCE.COMPLIANCE_QUALITY_ASSURANCE_CASES</td>
+                            <td>Daily</td>
+                        </tr>
+                        <tr>
+                            <td>BPO Headcount (Current)</td>
+                            <td>Google Drive</td>
+                            <td>BPO Block Roster Report (Monthly File)</td>
+                            <td>Weekly</td>
+                        </tr>
+                        <tr>
+                            <td>BPO Headcount (Trending)</td>
+                            <td>Snowflake</td>
+                            <td>APP_COMPLIANCE.CASH.BPO_ROSTER + FWC_ROSTER</td>
+                            <td>Monthly</td>
+                        </tr>
+                        <tr>
+                            <td>Internal Team</td>
+                            <td>Static</td>
+                            <td>16 Analysts + 2 Team Leads + 1 PPM</td>
+                            <td>Manual</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Other tabs (Who We Are, Deep Dive, Process) -->
+        <div id="who-we-are" class="tab-content">
+            <div class="program-description">
+                <p>The Know Your Customer (KYC) program ensures Block identifies, verifies, and monitors customers throughout their lifecycle. We conduct Customer Due Diligence (CDD), Enhanced Due Diligence (EDD), and ongoing screening to prevent financial crime, comply with BSA/AML regulations, and protect Block's ecosystem from illicit actors.</p>
+            </div>
+        </div>
+
+        <div id="deep-dive" class="tab-content">
+            <h2>Deep Dive Analysis</h2>
+            <p>Detailed breakdown of KYC metrics and performance indicators.</p>
+        </div>
+
+        <div id="process" class="tab-content">
+            <h2>Process & Controls</h2>
+            <p>Overview of KYC procedures and governance framework.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

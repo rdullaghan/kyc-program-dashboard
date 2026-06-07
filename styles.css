@@ -1,0 +1,380 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f6fa;
+    color: #2c3e50;
+    line-height: 1.4;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* Header Styles */
+.header {
+    padding: 20px 30px;
+    border-bottom: 1px solid #e1e8ed;
+    position: relative;
+    background: white;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: #657786;
+    margin-bottom: 0;
+}
+
+.user-info {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #657786;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #17bf63;
+    border-radius: 50%;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    display: flex;
+    border-bottom: 1px solid #e1e8ed;
+    background: #f8f9fa;
+}
+
+.nav-tab {
+    background: none;
+    border: none;
+    padding: 16px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #657786;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-tab:hover {
+    color: #2c3e50;
+    background-color: #e8f4f8;
+}
+
+.nav-tab.active {
+    color: #1da1f2;
+    border-bottom-color: #1da1f2;
+    background-color: white;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    padding: 30px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Program Description */
+.program-description {
+    background: #e8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid #1da1f2;
+}
+
+.program-description p {
+    color: #2c3e50;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Metrics Row */
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.metric-card {
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #657786;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.metric-value.green {
+    color: #17bf63;
+}
+
+.metric-change {
+    font-size: 12px;
+    color: #657786;
+    font-weight: 500;
+}
+
+.metric-change.positive {
+    color: #17bf63;
+}
+
+.metric-change.negative {
+    color: #e0245e;
+}
+
+.metric-change.neutral {
+    color: #657786;
+}
+
+/* Charts Section */
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.chart-container h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.chart-container canvas {
+    max-height: 200px;
+    width: 100%;
+}
+
+/* Data Sources Section */
+.data-sources-section {
+    margin-top: 40px;
+}
+
+.data-sources-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.data-sources-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.data-sources-table th,
+.data-sources-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e1e8ed;
+    font-size: 13px;
+}
+
+.data-sources-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+}
+
+.data-sources-table td {
+    color: #2c3e50;
+}
+
+.data-sources-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-sources-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .charts-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+
+    .user-info {
+        position: static;
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+
+    .nav-tab {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .metrics-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .charts-section {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .data-sources-table {
+        font-size: 11px;
+    }
+
+    .data-sources-table th,
+    .data-sources-table td {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .breadcrumb {
+        font-size: 12px;
+    }
+
+    .metric-value {
+        font-size: 28px;
+    }
+
+    .nav-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .nav-tab {
+        flex-shrink: 0;
+    }
+}
+
+/* Chart specific styles */
+.chart-container canvas {
+    background: transparent;
+}
+
+/* Loading state */
+.chart-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #657786;
+    font-size: 14px;
+}
+
+/* Animation for metric cards */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.metric-card {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Highlight current month */
+.current-month {
+    background: #e8f4f8 !important;
+    border-left: 4px solid #1da1f2;
+}
+
+/* Status indicators */
+.status-good {
+    color: #17bf63;
+}
+
+.status-warning {
+    color: #ff9500;
+}
+
+.status-error {
+    color: #e0245e;
+}
