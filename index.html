@@ -23,14 +23,136 @@
 
         <!-- Navigation Tabs -->
         <div class="nav-tabs">
-            <button class="nav-tab" data-tab="who-we-are">Who We Are</button>
-            <button class="nav-tab active" data-tab="program-overview">Program Overview</button>
+            <button class="nav-tab active" data-tab="who-we-are">Who We Are</button>
+            <button class="nav-tab" data-tab="program-overview">Program Overview</button>
             <button class="nav-tab" data-tab="deep-dive">Deep Dive</button>
             <button class="nav-tab" data-tab="process">Process</button>
         </div>
 
-        <!-- Program Overview Tab (Main Dashboard) -->
-        <div id="program-overview" class="tab-content active">
+        <!-- Who We Are Tab (Default Active) -->
+        <div id="who-we-are" class="tab-content active">
+            <div class="program-description">
+                <p>The Know Your Customer (KYC) program ensures Block identifies, verifies, and monitors customers throughout their lifecycle. We conduct Customer Due Diligence (CDD), Enhanced Due Diligence (EDD), and ongoing screening to prevent financial crime, comply with BSA/AML regulations, and protect Block's ecosystem from illicit actors.</p>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="key-stats-section">
+                <h2>Key Stats</h2>
+                <div class="key-stats-grid">
+                    <div class="key-stat-card blue">
+                        <div class="key-stat-label">ALERTS REVIEWED / MONTH</div>
+                        <div class="key-stat-value">270K+</div>
+                    </div>
+                    <div class="key-stat-card green">
+                        <div class="key-stat-label">DISPOSITIONING RATE</div>
+                        <div class="key-stat-value">19.5%</div>
+                    </div>
+                    <div class="key-stat-card red">
+                        <div class="key-stat-label">DQSLA RATE</div>
+                        <div class="key-stat-value">3.5%</div>
+                        <div class="key-stat-subtitle">3 reporting</div>
+                    </div>
+                    <div class="key-stat-card purple">
+                        <div class="key-stat-label">DECISION ACCURACY</div>
+                        <div class="key-stat-value">96.3%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why We Matter -->
+            <div class="why-we-matter-section">
+                <h2>Why We Matter</h2>
+                <div class="why-matter-grid">
+                    <div class="why-matter-card">
+                        <div class="why-matter-icon">🏛️</div>
+                        <h3>Regulatory Compliance</h3>
+                        <p>KYC ensures Block meets BSA/AML and FinCEN CDD Rule obligations, preventing regulatory action and maintaining banking partnerships.</p>
+                    </div>
+                    <div class="why-matter-card">
+                        <div class="why-matter-icon">🔍</div>
+                        <h3>Risk-Based Monitoring</h3>
+                        <p>Periodic and event-driven reviews identify changes in customer risk profiles, ensuring high-risk customers receive appropriate oversight.</p>
+                    </div>
+                    <div class="why-matter-card">
+                        <div class="why-matter-icon">📊</div>
+                        <h3>Gatekeeper Function</h3>
+                        <p>KYC serves as the first and ongoing line of defense — from onboarding verification through continuous monitoring and screening.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Team -->
+            <div class="our-team-section">
+                <h2>Our Team</h2>
+                <p>KYC analysts require expertise in identity verification methodologies, beneficial ownership structures, PEP/adverse media screening, and risk-rating frameworks across multiple jurisdictions (US, UK, EU, AU). Reviews encompass CDD, EDD, and ongoing monitoring — requiring proficiency in document authentication, corporate registry research, and understanding of complex ownership hierarchies. Unlike transactional operations teams, our analysts assess holistic customer risk profiles and make onboarding/offboarding determinations that balance regulatory compliance with customer experience.</p>
+                
+                <div class="team-table-container">
+                    <table class="team-table">
+                        <thead>
+                            <tr>
+                                <th>Team</th>
+                                <th>Headcount</th>
+                                <th>Focus</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BPO (AMLEX)</td>
+                                <td>275</td>
+                                <td>Cash CDD, EDD Big Sweep, Restriction, Forced close, NBV, NPD</td>
+                                <td>India</td>
+                            </tr>
+                            <tr>
+                                <td>BPO (AMLEX)</td>
+                                <td>15</td>
+                                <td>Square KYC (ICAMLBUS POS, SBP, EDD)</td>
+                                <td>India</td>
+                            </tr>
+                            <tr>
+                                <td>BPO (PWC)</td>
+                                <td>~100</td>
+                                <td>Cash EDD/CDD, Adverse Media, 314a Screening</td>
+                                <td>India (Bangalore)</td>
+                            </tr>
+                            <tr>
+                                <td>Internal — Cash KYC</td>
+                                <td>~12 analysts</td>
+                                <td>Complex/escalated CDD, EDD, Screening</td>
+                                <td>US</td>
+                            </tr>
+                            <tr>
+                                <td>Internal — Square KYC</td>
+                                <td>~6 analysts</td>
+                                <td>Square CDD, EDD, POS screening</td>
+                                <td>US</td>
+                            </tr>
+                            <tr>
+                                <td>Team Leads</td>
+                                <td>2</td>
+                                <td>Oversight, escalations, quality</td>
+                                <td>US</td>
+                            </tr>
+                            <tr>
+                                <td>Process Program Manager</td>
+                                <td>1</td>
+                                <td>Process design, optimization, governance</td>
+                                <td>US</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>Total</strong></td>
+                                <td><strong>~411</strong></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Overview Tab -->
+        <div id="program-overview" class="tab-content">
             <!-- Top Metrics Row -->
             <div class="metrics-container">
                 <div class="metric-card">
@@ -172,58 +294,7 @@
             </div>
         </div>
 
-        <!-- Other Tabs -->
-        <div id="who-we-are" class="tab-content">
-            <div class="program-description">
-                <p>The Know Your Customer (KYC) program ensures Block identifies, verifies, and monitors customers throughout their lifecycle. We conduct Customer Due Diligence (CDD), Enhanced Due Diligence (EDD), and ongoing screening to prevent financial crime, comply with BSA/AML regulations, and protect Block's ecosystem from illicit actors.</p>
-            </div>
 
-            <!-- Key Stats -->
-            <div class="key-stats-section">
-                <h2>Key Stats</h2>
-                <div class="stats-grid">
-                    <div class="stat-card blue">
-                        <div class="stat-label">ALERTS REVIEWED / MONTH</div>
-                        <div class="stat-value">270K+</div>
-                    </div>
-                    <div class="stat-card green">
-                        <div class="stat-label">DISPOSITIONING RATE</div>
-                        <div class="stat-value">19.5%</div>
-                    </div>
-                    <div class="stat-card red">
-                        <div class="stat-label">DQSLA RATE</div>
-                        <div class="stat-value">3.5%</div>
-                        <div class="stat-subtitle">3 reporting</div>
-                    </div>
-                    <div class="stat-card purple">
-                        <div class="stat-label">DECISION ACCURACY</div>
-                        <div class="stat-value">96.3%</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Why We Matter -->
-            <div class="why-we-matter-section">
-                <h2>Why We Matter</h2>
-                <div class="matter-grid">
-                    <div class="matter-card">
-                        <div class="matter-icon">🏛️</div>
-                        <h3>Regulatory Compliance</h3>
-                        <p>Ensures Block meets BSA/AML and FinCEN CDD Rule obligations, preventing regulatory action and maintaining banking partnerships.</p>
-                    </div>
-                    <div class="matter-card">
-                        <div class="matter-icon">🔍</div>
-                        <h3>Risk-Based Monitoring</h3>
-                        <p>Proactively monitors customers to identify changes in customer risk profiles, ensuring high-risk customers receive appropriate oversight.</p>
-                    </div>
-                    <div class="matter-card">
-                        <div class="matter-icon">🛡️</div>
-                        <h3>Gatekeeper Function</h3>
-                        <p>KYC serves as the first and ongoing line of defense — from onboarding verification through continuous monitoring and screening.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div id="deep-dive" class="tab-content">
             <h2>Deep Dive Analysis</h2>

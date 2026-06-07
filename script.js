@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize charts on page load (Program Overview is active by default)
-    initAllCharts();
+    // Don't initialize charts on page load since Who We Are is now default
 });
 
 // Chart Colors (matching the clean, minimal style)

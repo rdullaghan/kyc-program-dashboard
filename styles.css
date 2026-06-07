@@ -259,7 +259,7 @@ body {
     font-size: 13px;
 }
 
-/* Key Stats Section (Who We Are tab) */
+/* Key Stats Section */
 .key-stats-section {
     margin-bottom: 32px;
 }
@@ -271,72 +271,74 @@ body {
     margin-bottom: 16px;
 }
 
-.stats-grid {
+.key-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
 }
 
-.stat-card {
+.key-stat-card {
     background: white;
+    border: 1px solid #e1e8ed;
     border-radius: 4px;
     padding: 16px;
-    border-left: 3px solid #ccc;
+    border-top: 3px solid #ccc;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.stat-card.blue {
-    border-left-color: #1da1f2;
+.key-stat-card.blue {
+    border-top-color: #4A90E2;
 }
 
-.stat-card.green {
-    border-left-color: #17bf63;
+.key-stat-card.green {
+    border-top-color: #7ED321;
 }
 
-.stat-card.red {
-    border-left-color: #e0245e;
+.key-stat-card.red {
+    border-top-color: #D0021B;
 }
 
-.stat-card.purple {
-    border-left-color: #794bc4;
+.key-stat-card.purple {
+    border-top-color: #9013FE;
 }
 
-.stat-card .stat-label {
-    font-size: 9px;
+.key-stat-label {
+    font-size: 10px;
     font-weight: 600;
     color: #8899a6;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    line-height: 1.2;
 }
 
-.stat-card .stat-value {
-    font-size: 20px;
+.key-stat-value {
+    font-size: 28px;
     font-weight: 700;
-    color: #333;
     line-height: 1;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
-.stat-card.blue .stat-value {
-    color: #1da1f2;
+.key-stat-card.blue .key-stat-value {
+    color: #4A90E2;
 }
 
-.stat-card.green .stat-value {
-    color: #17bf63;
+.key-stat-card.green .key-stat-value {
+    color: #7ED321;
 }
 
-.stat-card.red .stat-value {
-    color: #e0245e;
+.key-stat-card.red .key-stat-value {
+    color: #D0021B;
 }
 
-.stat-card.purple .stat-value {
-    color: #794bc4;
+.key-stat-card.purple .key-stat-value {
+    color: #9013FE;
 }
 
-.stat-card .stat-subtitle {
-    font-size: 9px;
+.key-stat-subtitle {
+    font-size: 10px;
     color: #8899a6;
+    line-height: 1.2;
 }
 
 /* Why We Matter Section */
@@ -351,36 +353,102 @@ body {
     margin-bottom: 16px;
 }
 
-.matter-grid {
+.why-matter-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
-.matter-card {
+.why-matter-card {
     background: white;
     border-radius: 4px;
-    padding: 16px;
+    padding: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     border: 1px solid #e1e8ed;
+    text-align: center;
 }
 
-.matter-icon {
-    font-size: 24px;
+.why-matter-icon {
+    font-size: 32px;
     margin-bottom: 12px;
+    display: block;
 }
 
-.matter-card h3 {
+.why-matter-card h3 {
     font-size: 14px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-.matter-card p {
+.why-matter-card p {
     font-size: 12px;
     color: #657786;
-    line-height: 1.4;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Our Team Section */
+.our-team-section {
+    margin-bottom: 32px;
+}
+
+.our-team-section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.our-team-section p {
+    font-size: 12px;
+    color: #657786;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.team-table-container {
+    overflow-x: auto;
+    border-radius: 4px;
+    border: 1px solid #e1e8ed;
+}
+
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 12px;
+}
+
+.team-table th,
+.team-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.team-table th {
+    background: #f7f9fa;
+    font-weight: 600;
+    color: #333;
+    font-size: 11px;
+}
+
+.team-table td {
+    color: #333;
+}
+
+.team-table .total-row {
+    background: #f7f9fa;
+    font-weight: 600;
+}
+
+.team-table .total-row td {
+    border-bottom: none;
+}
+
+.team-table tr:hover {
+    background-color: #f7f9fa;
 }
 
 /* Responsive Design */
@@ -428,12 +496,12 @@ body {
         gap: 12px;
     }
 
-    .stats-grid {
+    .key-stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
-    .matter-grid {
+    .why-matter-grid {
         grid-template-columns: 1fr;
         gap: 12px;
     }
@@ -474,7 +542,7 @@ body {
         flex-shrink: 0;
     }
 
-    .stats-grid {
+    .key-stats-grid {
         grid-template-columns: 1fr;
     }
 }
