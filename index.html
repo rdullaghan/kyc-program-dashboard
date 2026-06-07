@@ -28,6 +28,7 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
 
 /* Cards */
 .cards-row-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 24px; }
+.cards-row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 @media (max-width: 1200px) { .cards-row-6 { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 768px) { .cards-row-6 { grid-template-columns: repeat(2, 1fr); } }
 
@@ -47,7 +48,6 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
 .program-desc { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 20px; margin-bottom: 24px; font-size: 14px; color: #1e40af; }
 
 /* Why cards */
-.cards-row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .why-card { background: #fff; border-radius: 12px; padding: 24px; border: 1px solid #e2e8f0; }
 .why-card .icon { font-size: 24px; margin-bottom: 12px; }
 .why-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #0f172a; }
@@ -60,11 +60,11 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
   <div class="header">
     <div class="header-left">
       <h1>KYC Program Stats</h1>
-      <p>Know Your Customer / Customer Due Diligence • All Products & Jurisdictions • Last updated: Jun 4, 2026 8:33 AM PT</p>
+      <p>Know Your Customer / Customer Due Diligence • All Products & Jurisdictions • Last updated: Jun 7, 2026 4:31 PM PT</p>
     </div>
     <div class="header-right">
       <div class="live-dot"></div>
-      <span style="font-size: 12px; color: #64748b;">↻ Refresh</span>
+      <span style="font-size: 12px; color: #64748b;">r.dullaghan</span>
     </div>
   </div>
 
@@ -122,9 +122,8 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
     </div>
   </div>
 
-  <!-- Tab 2: Program Overview -->
+  <!-- Tab 2: Program Overview - CLEAN VERSION (No headings, just 6 cards) -->
   <div class="tab-content" id="program-overview">
-    <!-- CORRECTED 6-card layout matching original screenshot -->
     <div class="cards-row-6">
       <div class="card">
         <div class="card-label">TOTAL VOLUME (MAY)</div>
@@ -157,10 +156,6 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
         <div class="card-detail">Target: ≥ 90%</div>
       </div>
     </div>
-
-    <p style="text-align: center; color: #64748b; font-size: 14px; margin-top: 40px;">
-      Charts and additional metrics would be displayed here.
-    </p>
   </div>
 
   <!-- Tab 3: Deep Dive -->
