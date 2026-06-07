@@ -214,8 +214,129 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
 
   <!-- Tab 4: Process -->
   <div class="tab-content" id="process">
-    <h2 class="section-header">Process & Controls</h2>
-    <p>Overview of KYC procedures and governance framework.</p>
+    <!-- Process Tab Content -->
+    <div class="process-content" style="padding: 0;">
+        
+        <!-- Header -->
+        <div class="process-header" style="margin-bottom: 30px;">
+            <h2 style="color: #1a365d; margin-bottom: 10px;">KYC Program Process Overview</h2>
+            <p style="color: #64748b; font-size: 16px;">Three core workflows ensuring comprehensive customer due diligence and regulatory compliance</p>
+        </div>
+
+        <!-- Three Main Process Flows -->
+        <div class="process-flows" style="display: grid; gap: 25px;">
+            
+            <!-- CDD/EDD Workflow -->
+            <div class="workflow-section" style="background: #f8fafc; border-left: 4px solid #3182ce; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #2d3748; margin-bottom: 15px; display: flex; align-items: center;">
+                    <span style="background: #3182ce; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px; font-weight: bold;">1</span>
+                    Customer Due Diligence (CDD/EDD)
+                </h3>
+                <div class="workflow-steps" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Risk Assessment</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">aCRR/cCRR Scoring</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Review Type</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">CDD or EDD</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Investigation</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">4-month review</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Decision</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Clear/Warn/Escalate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ongoing Monitoring Workflow -->
+            <div class="workflow-section" style="background: #f0fff4; border-left: 4px solid #38a169; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #2d3748; margin-bottom: 15px; display: flex; align-items: center;">
+                    <span style="background: #38a169; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px; font-weight: bold;">2</span>
+                    Ongoing Monitoring
+                </h3>
+                <div class="workflow-steps" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Surveillance</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Continuous cCRR</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Alert Generation</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Threshold breaches</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Periodic Review</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">90-day cycles</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Risk Update</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Re-rating & controls</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screening Workflow -->
+            <div class="workflow-section" style="background: #fef5e7; border-left: 4px solid #d69e2e; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #2d3748; margin-bottom: 15px; display: flex; align-items: center;">
+                    <span style="background: #d69e2e; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px; font-weight: bold;">3</span>
+                    Screening & Alerts
+                </h3>
+                <div class="workflow-steps" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Watchlist Check</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">314(a), Sanctions, PEP</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">L1 Review</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Initial assessment</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">L2 Escalation</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Enhanced review</div>
+                    </div>
+                    <div style="color: #64748b; font-size: 18px;">→</div>
+                    <div class="step" style="background: white; padding: 12px 16px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 140px; text-align: center;">
+                        <div style="font-weight: 600; color: #2d3748; font-size: 14px;">Disposition</div>
+                        <div style="font-size: 12px; color: #64748b; margin-top: 4px;">SAR/Clear/Monitor</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Standards -->
+        <div class="process-standards" style="margin-top: 30px; background: #f7fafc; padding: 20px; border-radius: 8px;">
+            <h3 style="color: #2d3748; margin-bottom: 15px;">Process Standards</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div class="standard" style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: bold; color: #3182ce;">30 Days</div>
+                    <div style="font-size: 14px; color: #64748b;">Standard SLA</div>
+                </div>
+                <div class="standard" style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: bold; color: #38a169;">4 Months</div>
+                    <div style="font-size: 14px; color: #64748b;">Review Period</div>
+                </div>
+                <div class="standard" style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: bold; color: #d69e2e;">24/7</div>
+                    <div style="font-size: 14px; color: #64748b;">Monitoring</div>
+                </div>
+                <div class="standard" style="text-align: center;">
+                    <div style="font-size: 24px; font-weight: bold; color: #e53e3e;">$2,000</div>
+                    <div style="font-size: 14px; color: #64748b;">SAR Threshold</div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 
