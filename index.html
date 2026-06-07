@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KYC Program Stats</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
@@ -36,6 +37,7 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
 .card-label { font-size: 11px; font-weight: 500; color: #64748b; text-transform: uppercase; margin-bottom: 6px; }
 .card-value { font-size: 24px; font-weight: 700; color: #0f172a; }
 .card-value.green { color: #16a34a; }
+.card-value.red { color: #dc2626; }
 .card-detail { font-size: 11px; color: #64748b; margin-top: 4px; }
 .card-detail.positive { color: #16a34a; }
 .card-detail.negative { color: #dc2626; }
@@ -52,6 +54,10 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
 .why-card .icon { font-size: 24px; margin-bottom: 12px; }
 .why-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #0f172a; }
 .why-card p { font-size: 13px; color: #64748b; line-height: 1.6; }
+
+/* Chart containers */
+.chart-container { position: relative; height: 200px; }
+.chart-title { font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 16px; }
 </style>
 </head>
 <body>
@@ -122,7 +128,7 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
     </div>
   </div>
 
-  <!-- Tab 2: Program Overview - Matching Original Layout -->
+  <!-- Tab 2: Program Overview - With Charts -->
   <div class="tab-content" id="program-overview">
     <!-- 6 Cards at top -->
     <div class="cards-row-6">
@@ -148,8 +154,8 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
       </div>
       <div class="card">
         <div class="card-label">SLA COMPLIANCE</div>
-        <div class="card-value green">99.7%</div>
-        <div class="card-detail">Target: varies by queue (1-30 days)</div>
+        <div class="card-value red">97.0%</div>
+        <div class="card-detail negative">3% out of SLA</div>
       </div>
       <div class="card">
         <div class="card-label">QC PASS RATE</div>
@@ -158,31 +164,43 @@ body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; li
       </div>
     </div>
 
-    <!-- Charts Section (3x2 grid like original) -->
+    <!-- Charts Section (3x2 grid with actual charts) -->
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px;">
       <div class="card" style="padding: 20px;">
-        <h4 style="font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 16px;">Monthly Alert Volume</h4>
-        <div style="text-align: center; color: #64748b; font-size: 12px; padding: 40px 0;">Chart Placeholder</div>
+        <div class="chart-title">Monthly Alert Volume</div>
+        <div class="chart-container">
+          <canvas id="volumeChart"></canvas>
+        </div>
       </div>
       <div class="card" style="padding: 20px;">
-        <h4 style="font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 16px;">DL/Escalation Rate Trend</h4>
-        <div style="text-align: center; color: #64748b; font-size: 12px; padding: 40px 0;">Chart Placeholder</div>
+        <div class="chart-title">DL/Escalation Rate Trend</div>
+        <div class="chart-container">
+          <canvas id="dlChart"></canvas>
+        </div>
       </div>
       <div class="card" style="padding: 20px;">
-        <h4 style="font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 16px;">ooSLA Rate Trend</h4>
-        <div style="text-align: center; color: #64748b; font-size: 12px; padding: 40px 0;">Chart Placeholder</div>
+        <div class="chart-title">ooSLA Rate Trend</div>
+        <div class="chart-container">
+          <canvas id="ooslaChart"></canvas>
+        </div>
       </div>
       <div class="card" style="padding: 20px;">
-        <h4 style="font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 16px;">Headcount Ramp</h4>
-        <div style="text-align: center; color: #64748b; font-size: 12px; padding: 40px 0;">Chart Placeholder</div>
+        <div class="chart-title">Headcount Ramp</div>
+        <div class="chart-container">
+          <canvas id="headcountChart"></canvas>
+        </div>
       </div>
       <div class="card" style="padding: 20px;">
-        <h4 style="font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 16px;">SLA Compliance Trend</h4>
-        <div style="text-align: center; color: #64748b; font-size: 12px; padding: 40px 0;">Chart Placeholder</div>
+        <div class="chart-title">SLA Compliance Trend</div>
+        <div class="chart-container">
+          <canvas id="slaChart"></canvas>
+        </div>
       </div>
       <div class="card" style="padding: 20px;">
-        <h4 style="font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 16px;">QC Pass Rate Trend</h4>
-        <div style="text-align: center; color: #64748b; font-size: 12px; padding: 40px 0;">Chart Placeholder</div>
+        <div class="chart-title">QC Pass Rate Trend</div>
+        <div class="chart-container">
+          <canvas id="qcChart"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -208,7 +226,183 @@ document.querySelectorAll('.tab').forEach(tab => {
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById(tab.dataset.tab).classList.add('active');
+    
+    // Initialize charts when Program Overview tab is clicked
+    if (tab.dataset.tab === 'program-overview') {
+      setTimeout(initCharts, 100);
+    }
   });
+});
+
+// Initialize charts
+function initCharts() {
+  // Monthly Alert Volume Chart
+  const volumeCtx = document.getElementById('volumeChart');
+  if (volumeCtx && !volumeCtx.chart) {
+    volumeCtx.chart = new Chart(volumeCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          data: [213, 252, 337, 249, 329],
+          backgroundColor: '#3b82f6',
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, grid: { display: false } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // DL/Escalation Rate Trend
+  const dlCtx = document.getElementById('dlChart');
+  if (dlCtx && !dlCtx.chart) {
+    dlCtx.chart = new Chart(dlCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          data: [6.7, 1.7, 2.9, 12.4, 17.8],
+          borderColor: '#f97316',
+          backgroundColor: '#f97316',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, grid: { display: false } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // ooSLA Rate Trend
+  const ooslaCtx = document.getElementById('ooslaChart');
+  if (ooslaCtx && !ooslaCtx.chart) {
+    ooslaCtx.chart = new Chart(ooslaCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          data: [5.96, 0.39, 1.02, 1.75, 0.29],
+          borderColor: '#dc2626',
+          backgroundColor: '#dc2626',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, grid: { display: false } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // Headcount Ramp
+  const headcountCtx = document.getElementById('headcountChart');
+  if (headcountCtx && !headcountCtx.chart) {
+    headcountCtx.chart = new Chart(headcountCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [
+          {
+            label: 'BPO',
+            data: [270, 300, 340, 385, 400],
+            backgroundColor: '#3b82f6'
+          },
+          {
+            label: 'Internal',
+            data: [20, 20, 20, 25, 60],
+            backgroundColor: '#8b5cf6'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { stacked: true, grid: { display: false } },
+          y: { stacked: true, beginAtZero: true, grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // SLA Compliance Trend
+  const slaCtx = document.getElementById('slaChart');
+  if (slaCtx && !slaCtx.chart) {
+    slaCtx.chart = new Chart(slaCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          data: [94.0, 99.6, 99.0, 98.3, 97.0],
+          borderColor: '#16a34a',
+          backgroundColor: '#16a34a',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { min: 90, max: 100, grid: { display: false } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // QC Pass Rate Trend
+  const qcCtx = document.getElementById('qcChart');
+  if (qcCtx && !qcCtx.chart) {
+    qcCtx.chart = new Chart(qcCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          data: [91.9, 93.3, 93.6, 94.8, 93.6],
+          borderColor: '#8b5cf6',
+          backgroundColor: '#8b5cf6',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { min: 90, max: 96, grid: { display: false } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
+}
+
+// Initialize charts on page load if Program Overview is active
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('program-overview').classList.contains('active')) {
+    setTimeout(initCharts, 100);
+  }
 });
 </script>
 </body>
